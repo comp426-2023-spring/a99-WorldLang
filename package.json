@@ -1,0 +1,26 @@
+{
+  "name": "a99-worldlang",
+  "version": "1.0.0",
+  "description": "webserver for final project, foreign language resources interactive",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "node server.js --port=5555"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2023-spring/a99-WorldLang.git"
+  },
+  "keywords": [
+    "languages",
+    "web"
+  ],
+  "author": "@kcbryan, @ranjanivs, @awtack, @aidandunc",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2023-spring/a99-WorldLang/issues"
+  },
+  "homepage": "https://github.com/comp426-2023-spring/a99-WorldLang#readme"
+}
