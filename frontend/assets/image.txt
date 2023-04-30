@@ -1,0 +1,1 @@
+This is the folder where we will upload images we want to include in our application.
