@@ -1,1 +1,0 @@
-This is where we will create and organize directories for all of our code components: home, profile editing, et cetera
