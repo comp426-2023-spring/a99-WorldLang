@@ -11,11 +11,11 @@ h1 {
 
 .header{
     width:100%;
-    overflow:hidden; 
     height:60px;
     background-color: #0D7E55;
     position: fixed;
-    z-index: 100;
+    top: 0px;
+    left: 0px;
 }
 
 .navbar {
@@ -23,10 +23,10 @@ h1 {
     height: 100%;
     background-color: #013f29;
     position: fixed;
-    top: 62px;
+    top: 60px;
     left: 0;
     z-index: 1;
-    width: 100;
+    width: 100px;
     padding-top: 40px;
 }
 
@@ -40,4 +40,15 @@ h1 {
 
 .navbar a:hover{
     color: #79b39f;
+}
+
+.user {
+    width: 50%;
+    background-color: #f0f0f0;
+    padding-left: 110 px;
+    top: 70px;
+    left: 110px;
+    color: #013f29;
+    position: relative;
+    z-index: 150;
 }
