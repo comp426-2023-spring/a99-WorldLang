@@ -35,8 +35,13 @@ h1 {
     display: block;
     color: white;
     display: block;
-
+    font-family: 'Raleway', sans-serif;
+    text-align:center;
 }
+
+.navbar a:link { text-decoration: none; }
+
+.navbar a:visited { text-decoration: none; }
 
 .navbar a:hover{
     color: #79b39f;
