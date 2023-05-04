@@ -15,7 +15,7 @@
 
     <div class = "card">
         <h3>Please Create Your Worldlang Account</h3>
-        <form action="">
+        <form id="registerForm">
             <label for="name">name:     </label>
             <input type="text" placeholder="name" id="name" name="name"><br>
             <label for="email">email:    </label>
@@ -24,9 +24,40 @@
             <input type="text" placeholder="username" id="username" name="username"><br>
             <label for="password">password: </label>
             <input type="text" placeholder="password" id="password" name="password"><br> 
-            <button (click)="onLogin()">register</button>
+            <button type="submit">register</button>
         </form>
     </div>
 
 </body>
 </html>
+
+<script>
+    document.getElementById('registerForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('http://localhost:3000/app/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, username, password }),
+        });
+
+        if (response.status === 201) {
+            alert('User registered successfully');
+            window.location.href = '../home/index.html';
+        } else {
+            const errorMessage = await response.text();
+            alert(`Registration failed: ${errorMessage}`);
+        }
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+    });
+</script>
