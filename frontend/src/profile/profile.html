@@ -18,6 +18,7 @@
         <a href="../chinese/chinese.html">Chinese</a>
         <a href="../german/german.html">German</a>
         <a href="../spanish/spanish.html">Spanish</a>
+        <a id="logoutBtn">Log out</a>
     </div>
 
     <div class="user">
@@ -27,3 +28,23 @@
     </div>
 </body>
 </html>
+
+<script>
+    const user = JSON.parse(sessionStorage.getItem('user'));
+
+    if (user) {
+        document.querySelector('.user').innerHTML = `
+            <p>username: ${user.username}</p>
+            <p>name: ${user.name}</p>
+            <p>email: ${user.email}</p>
+        `;
+    } else {
+        // Redirect to the home page if there is no logged-in user
+        window.location.href = '../home/index.html';
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        sessionStorage.removeItem('user');
+        window.location.href = '../home/index.html';
+    });
+</script>

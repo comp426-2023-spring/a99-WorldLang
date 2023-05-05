@@ -1,0 +1,31 @@
+{
+  "name": "a99-worldlang",
+  "version": "1.0.0",
+  "description": "**DUE:** 2023-05-05T22:00 (End of Exam Period)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "install": "echo \"Dependencies are installed.\"",
+    "start": "node backend/server.js",
+    "test": "node backend/server.js & sleep 5s && echo \"Server is running...\" && kill $(lsof -t -i:3000)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2023-spring/a99-WorldLang.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/comp426-2023-spring/a99-WorldLang/issues"
+  },
+  "homepage": "https://github.com/comp426-2023-spring/a99-WorldLang#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^5.3.0"
+  }
+}
