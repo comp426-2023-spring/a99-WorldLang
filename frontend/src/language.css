@@ -114,14 +114,4 @@ p {
     font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
   }
 
-button {
-    padding: 12px 24px;
-    border-radius: 50px;
-    border: none;
-    color: white;
-    background-color: #79AE9B;
-    margin: 0 auto;
-    display: block;
-    cursor: pointer;
-    font-size: 15px;
-}
+  
