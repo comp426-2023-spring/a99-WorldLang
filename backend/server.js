@@ -136,5 +136,5 @@ try {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}/home`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
