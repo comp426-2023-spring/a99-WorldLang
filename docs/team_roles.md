@@ -3,7 +3,7 @@ These roles are delineated as follows:
 
 Frontend Leads: Kate Bryan, Ranjani Venkatesh
 
-Design Lead: TBA (ooooh)
+Design Lead: Kate Bryan
 
 Backend Leads: Aaron Tackett, Aidan Glynn
 
