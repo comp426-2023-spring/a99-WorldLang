@@ -15,21 +15,24 @@
 
     <div class="container">
         
-        <div class="child">
+        <div class="left-box">
             <div class="welcome_message">
             <p>Welcome to worldlang, our new language learning website! Please make an account or sign in to get started.</p><br>
-            <img src="../../assets/temp_globe.png" width="164" height="128" alt="globe clipart"/>
+            <div class="globe"><img src="../../assets/temp_globe_trans.png" width="164" height="128" alt="globe clipart"/> </div>
             </div>
         </div>
 
-        <div class="child">   
+        <div class="right-box">   
             <form id="login-form">
-                <label for="username">username</label>
+                <label><br>Username
+                </br>
+                </label>
                 <input type="text" placeholder="username" id="username" name="username"><br>
-                <label for="password">password</label>
+                <label> <br>Password</br></label>
                 <input type="password" placeholder="password" id="password" name="password"><br> 
-                <button type="submit">login</button>
-                <input type="button" onclick="window.location.href='../register/register.html'" value="register">
+                <br><br>
+                <button type="submit" name="log" id="log"><b>login</b></button>
+                <input type="button" name="reg" id="reg" onclick="window.location.href='../register/register.html'" value="register">
             </form>
         </div>
             
