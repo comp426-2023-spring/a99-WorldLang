@@ -21,11 +21,25 @@
         <a id="logoutBtn">Log out</a>
     </div>
 
-    <div class="user">
-        <p>username: aaron_smoth</p>
-        <p>name: Aaron Smoth</p>
-        <p>email: aaron.smoth@unc.edu</p>
+    <div class = "title">
+        <h2>My Profile</h2>
     </div>
+
+
+    <div class="container">
+        <div class="card">
+            <div class="user">
+                <p>username: aaron_smoth</p>
+                <p>name: Aaron Smoth</p>
+                <p>email: aaron.smoth@unc.edu</p>
+                <button type="submit" name="delete" id="delete">delete</button>
+                <input type="button" name="edit" id="edit" onclick="window.location.href='editprofile.html'" value="edit">
+
+            </div>
+        </div>
+    </div>
+    
+    
 </body>
 </html>
 
@@ -47,4 +61,28 @@
         sessionStorage.removeItem('user');
         window.location.href = '../home/index.html';
     });
+
+    document.getElementById('delete').addEventListener('click', async ()=> {
+        try {
+        const response = await fetch('http://localhost:3000/app/user/${user.username}', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.status === 200) {
+            alert('User account deleted');
+            window.location.href = '../home/index.html';
+        } else if(response.status === 404){
+            alert('User not found')
+        } else {
+            const errorMessage = await response.text();
+            alert(`Internal server error: ${errorMessage}`);
+        }
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+    });
+
 </script>
