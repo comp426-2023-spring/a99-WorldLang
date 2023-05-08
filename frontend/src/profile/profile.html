@@ -64,11 +64,13 @@
 
     document.getElementById('delete').addEventListener('click', async ()=> {
         try {
-        const response = await fetch('http://localhost:3000/app/user/${user.username}', {
+        const response = await fetch('http://localhost:3000/app/user/'.concat(user.username), {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
+            body: JSON.stringify({ username })
+
         });
 
         if (response.status === 200) {
