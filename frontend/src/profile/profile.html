@@ -51,6 +51,8 @@
             <p>username: ${user.username}</p>
             <p>name: ${user.name}</p>
             <p>email: ${user.email}</p>
+            <button type="submit" name="delete" id="delete">delete</button>
+            <input type="button" name="edit" id="edit" onclick="window.location.href='editprofile.html'" value="edit">
         `;
     } else {
         // Redirect to the home page if there is no logged-in user
@@ -62,22 +64,21 @@
         window.location.href = '../home/index.html';
     });
 
-    document.getElementById('delete').addEventListener('click', async ()=> {
-        try {
+    document.getElementById('delete').addEventListener('click', async () => {
+    try {
         const response = await fetch('http://localhost:3000/app/user/'.concat(user.username), {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username })
-
+            // Remove the body property, as it is not needed
         });
 
         if (response.status === 200) {
             alert('User account deleted');
             window.location.href = '../home/index.html';
-        } else if(response.status === 404){
-            alert('User not found')
+        } else if (response.status === 404) {
+            alert('User not found');
         } else {
             const errorMessage = await response.text();
             alert(`Internal server error: ${errorMessage}`);
@@ -86,5 +87,6 @@
         alert(`Error: ${error.message}`);
     }
     });
+
 
 </script>
