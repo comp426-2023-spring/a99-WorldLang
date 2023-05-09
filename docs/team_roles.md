@@ -7,11 +7,9 @@ Design Lead: Kate Bryan
 
 Backend Leads: Aaron Tackett, Aidan Glynn
 
-Database Lead: Aaron Tackett
+Database Lead: Aaron Tackett, Aidan Glynn
 
 Review Manager: Kate Bryan
-
-Release Manager: TBA (tee hee)
 
 Plan Manager: Kate Bryan
 
