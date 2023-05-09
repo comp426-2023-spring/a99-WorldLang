@@ -17,7 +17,7 @@ app.use(cors());
 const uri = 'mongodb://localhost:27017';
 const dbName = 'worldlang';
 
-
+//let website users create a worldlang account
 app.post('/app/register', async (req, res) => {
   const { name, email, username, password } = req.body;
   try {
@@ -40,6 +40,7 @@ app.post('/app/register', async (req, res) => {
   }
 });
 
+//let users login to pre-registered worldlang accounts
 app.post('/app/login', async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -69,6 +70,7 @@ app.post('/app/login', async (req, res) => {
 //     res.sendFile(path.join(__dirname, '../frontend/src/home/index.html'));
 // });  
 
+//let users update name, email, and password fields for their account
 app.put('/app/user', async (req, res) => {
     const { name, email, username, password } = req.body;
     try {
@@ -95,7 +97,8 @@ app.put('/app/user', async (req, res) => {
       res.status(500).send('Internal server error');
     }
 });
-  
+
+//access worldlang account to display profile details on profile page
 app.get('/app/user/:username', async (req, res) => {
 const { username } = req.params;
 try {
@@ -116,6 +119,7 @@ try {
 }
 });
   
+//let user delete their worldlang account
 app.delete('/app/user/:username', async (req, res) => {
 const { username } = req.params;
 try {
@@ -155,12 +159,14 @@ const todos = [{
 }
 ];
 
+//display list of user's goals
 app.get("/goals", function (req, res) {
 res.render("goals/goals", {
   data: todos,
 });
 });
 
+//add a new goal to user's goals
 app.post("/", (req, res) => {
   const inputTodoId = todos.length + 1;
   const inputTodoTask = req.body.todoTask;
@@ -174,7 +180,7 @@ app.post("/", (req, res) => {
   });
 });
 
-
+//delete a goal from user's goals
 app.post("/delete", (req, res) => {
 var requestedtodoId = req.body.todoId;
 var j = 0;
@@ -187,7 +193,7 @@ todos.forEach((todo) => {
   res.redirect("/goals");
 });
 
-
+//prevent access to undefined addresses
 app.get("*", function(req, res){
  res.send("<h1>Invalid Page</h1>")
 });
