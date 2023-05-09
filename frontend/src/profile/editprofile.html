@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="editprofile.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>worldlang</h1>    
+    </div>
+
+    <div class = "navbar">
+        <a href="../profile/profile.html">Profile</a>
+        <a href="../arabic/arabic.html">Arabic</a>
+        <a href="../chinese/chinese.html">Chinese</a>
+        <a href="../german/german.html">German</a>
+        <a href="../spanish/spanish.html">Spanish</a>
+    </div>
+    
+    <div class = "card">
+        <h3>Please Edit Your Worldlang Account</h3>
+        <form id="editForm">
+            <label for="name"> <br>Name:
+            </br></label>
+            <input type="text" placeholder="name" id="name" name="name"><br>
+            <label for="email"> <br>Email:  </br>  </label>
+            <input type="text" placeholder="email" id="email" name="email"><br>
+            <label for="username"><br>Your Username (cannot change):  
+            </br></label>
+            <input type="text" placeholder="username" id="username" name="username"><br>
+            <label for="password"><br>Password: </br></label>
+            <input type="text" placeholder="password" id="password" name="password"><br>
+            <br><br>
+            <button type="submit" name="update" id="update">update profile</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.getElementById('editForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('http://localhost:3000/app/user', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, username, password }),
+        });
+
+        if (response.status === 200) {
+            alert('Profile updated successfully. Please log out to see your changes reflected in your Profile tab!');
+            window.location.href = 'profile.html';
+        } else {
+            const errorMessage = await response.text();
+            alert(`Profile update failed: ${errorMessage}`);
+        }
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+    });
+</script>
