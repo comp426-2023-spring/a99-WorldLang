@@ -29,7 +29,7 @@
             <input type="text" placeholder="name" id="name" name="name"><br>
             <label for="email"> <br>Email:  </br>  </label>
             <input type="text" placeholder="email" id="email" name="email"><br>
-            <label for="username"><br>Username:  
+            <label for="username"><br>Your Username (cannot change):  
             </br></label>
             <input type="text" placeholder="username" id="username" name="username"><br>
             <label for="password"><br>Password: </br></label>
@@ -61,8 +61,8 @@
         });
 
         if (response.status === 200) {
-            alert('Profile updated successfully');
-            window.location.href = '../home/index.html';
+            alert('Profile updated successfully. Please log out to see your changes reflected in your Profile tab!');
+            window.location.href = 'profile.html';
         } else {
             const errorMessage = await response.text();
             alert(`Profile update failed: ${errorMessage}`);
