@@ -6,6 +6,8 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+app.set('views', './frontend/src');
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('frontend/src'));
 app.use('/assets', express.static('frontend/assets'));
@@ -14,6 +16,7 @@ app.use(cors());
 
 const uri = 'mongodb://localhost:27017';
 const dbName = 'worldlang';
+
 
 app.post('/app/register', async (req, res) => {
   const { name, email, username, password } = req.body;
@@ -134,6 +137,61 @@ try {
     res.status(500).send('Internal server error');
 }
 });
+
+// NEW CODE ************
+
+// somewhat working todo list
+const todos = [{
+  todoId: "1",
+  todoTask: "Learn Spanish",
+},
+{
+  todoId: "2",
+  todoTask: "Make Flashcards",
+},
+{
+  todoId: "3",
+  todoTask: "Study Chinese",
+}
+];
+
+app.get("/goals", function (req, res) {
+res.render("goals/goals", {
+  data: todos,
+});
+});
+
+app.post("/", (req, res) => {
+  const inputTodoId = todos.length + 1;
+  const inputTodoTask = req.body.todoTask;
+
+  todos.push({
+    todoId: inputTodoId,
+    todoTask: inputTodoTask
+    });
+  res.render("goals/goals", {
+    data: todos,
+  });
+});
+
+
+app.post("/delete", (req, res) => {
+var requestedtodoId = req.body.todoId;
+var j = 0;
+todos.forEach((todo) => {
+  j = j + 1;
+  if (todo.todoId === requestedtodoId) {
+      todos.splice(j - 1, 1);
+    }
+  });
+  res.redirect("/goals");
+});
+
+
+app.get("*", function(req, res){
+ res.send("<h1>Invalid Page</h1>")
+});
+// ***************************
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}/home`);
