@@ -66,9 +66,9 @@ app.post('/app/login', async (req, res) => {
     }
 });
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../frontend/src/home/index.html'));
-// });  
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/src/home/index.html'));
+});  
 
 //let users update name, email, and password fields for their account
 app.put('/app/user', async (req, res) => {
