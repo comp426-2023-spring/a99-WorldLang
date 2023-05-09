@@ -1,5 +1,7 @@
 # Meeting Notes
 
+Our project board was also used for planning throughout the process of working on this project.
+
 ## Meeting 1: 4/11
 -Discussed and picked project ideas
 -Tentative discussion of who will be responsible for what
@@ -42,6 +44,10 @@
 -Goals page has been started but may not be completely finished by project deadline
 -Plan to meet 5/8
 
-
-
-
+## Meeting 8: 5/8
+-Updated edit profile/delete account page
+-Went through entire website to make sure everything was functional
+    -Goals page is still WIP
+-Decided how to record video
+-Recorded demo video
+-Last changes in documentation
